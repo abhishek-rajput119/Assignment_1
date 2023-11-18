@@ -1,5 +1,6 @@
 from word_dictionary import WordDictionary
 from word_reader import WordReader
+from fuzzywuzzy import process
 
 if __name__ == "__main__":
     
@@ -19,7 +20,6 @@ if __name__ == "__main__":
             break 
 
         result, index = dictionary.search(searched_word)
-        print(result, index)
         if result:
             print(f"Found the word: {searched_word}")
         else:
@@ -27,11 +27,11 @@ if __name__ == "__main__":
 
             if index > 0:
                 prefix = searched_word[:index - 1]
-                print(prefix)
                 
                 suggestions = dictionary.get_all_suggestions(prefix)
 
                 if suggestions:
-                    print(f"Did you mean? : {', '.join(suggestions)}")
+                    filtered_suggestions = [ratio[0] for ratio in process.extract(query=searched_word, choices=suggestions, limit=3)]
+                    print(f"Did you mean? : {', '.join(filtered_suggestions)}")
                 else:
                     print("No suggestions available.")
