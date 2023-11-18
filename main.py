@@ -1,6 +1,6 @@
 from word_dictionary import WordDictionary
 from word_reader import WordReader
-from fuzzywuzzy import process
+from fuzzywuzzy import process,fuzz
 
 if __name__ == "__main__":
     
@@ -31,7 +31,7 @@ if __name__ == "__main__":
                 suggestions = dictionary.get_all_suggestions(prefix)
 
                 if suggestions:
-                    filtered_suggestions = [ratio[0] for ratio in process.extract(query=searched_word, choices=suggestions, limit=3)]
+                    filtered_suggestions = [ratio[0] for ratio in process.extract(query=searched_word, choices=suggestions,scorer=fuzz.token_sort_ratio ,limit=3)]
                     print(f"Did you mean? : {', '.join(filtered_suggestions)}")
                 else:
                     print("No suggestions available.")
