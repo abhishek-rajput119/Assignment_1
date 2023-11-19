@@ -1,5 +1,5 @@
 ```markdown
-# Trie-based Dictionary Project
+#Dictionary Project
 
 This project implements a dictionary data structure using a trie.
 The main functionalities include inserting words into the dictionary,
