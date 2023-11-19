@@ -28,7 +28,7 @@ class WordDictionary(object):
             
             Space Complexity:
             - Worst Case: O(n) where n is the length of the word.
-            - Best Case: O(m) where m is the length - (the number of characters already present in the trie).
+            - Best Case: O(m) where m is the (length of word - the number of characters already present in the trie).
         """
         currentNode = self.root
         for letter in word:
