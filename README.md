@@ -1,7 +1,8 @@
 ```markdown
 # Trie-based Dictionary Project
 
-This project implements a dictionary data structure using a trie. The main functionalities include inserting words into the dictionary,
+This project implements a dictionary data structure using a trie.
+The main functionalities include inserting words into the dictionary,
 searching for words, and suggesting correct words in case of typos.
 
 ## Files
