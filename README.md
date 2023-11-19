@@ -45,7 +45,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-2. Enter words for insertion or search according to the prompts.
+2. Enter words for search to the prompts.
 
 3. The application will provide suggestions if a searched word contains a typo.
 
