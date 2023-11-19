@@ -7,14 +7,19 @@ if __name__ == "__main__":
     file_path = "sd 1 list.txt"
     dictionary = WordDictionary()
     loader = WordReader(file_path, dictionary)
+    print("Loading the data ...")
     loader.read_words()
-    
+    print("complete!")
     print("Welcome to the word search application")
     print("PRESS CTRL + C to quit")
 
     while True:
         print("\nEnter the word to search [or type 'EXIT'(case sensitive) to quit]: ")
         searched_word = input().strip()
+
+        if not searched_word:
+            print("Please provide a input!!!")
+            continue
 
         if searched_word == 'EXIT':
             break 
@@ -25,7 +30,7 @@ if __name__ == "__main__":
         else:
             print(f"Sorry, can't find the word '{searched_word}'!")
 
-            if index > 0:
+            if index > 2:
                 prefix = searched_word[:index - 1]
                 
                 suggestions = dictionary.get_all_suggestions(prefix)
