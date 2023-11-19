@@ -31,6 +31,7 @@ if __name__ == "__main__":
                 suggestions = dictionary.get_all_suggestions(prefix)
 
                 if suggestions:
+                    #From all the suggestions found be filtered the most relevant using levenshtein distance
                     filtered_suggestions = [ratio[0] for ratio in process.extract(query=searched_word, choices=suggestions,scorer=fuzz.token_sort_ratio ,limit=3)]
                     print(f"Did you mean? : {', '.join(filtered_suggestions)}")
                 else:
